@@ -1,7 +1,7 @@
 import os
 import sys
 import unittest
-from unittest.mock import MagicMock
+from unittest.mock import MagicMock, patch
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -39,7 +39,8 @@ class TestBuildClient(unittest.TestCase):
                 os.environ["DEEPSEEK_API_KEY"] = old
 
     def test_with_key_builds_client(self):
-        client = apitest.build_client(api_key="sk-test")
+        with patch.dict(sys.modules, {"openai": MagicMock()}):
+            client = apitest.build_client(api_key="sk-test")
         self.assertIsNotNone(client)
 
 
