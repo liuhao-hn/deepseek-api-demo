@@ -29,4 +29,4 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: 单元测试（mock API）
-        run: python -m unittest tests.test_apitest
+        run: python -m unittest tests.test_apitest tests.test_batch

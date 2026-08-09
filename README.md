@@ -18,6 +18,10 @@ export DEEPSEEK_API_KEY="your-api-key"
 python apitest.py                        # 默认示例文本
 python apitest.py --text "你的文本"       # 指定文本
 python apitest.py --model deepseek-v4-flash
+
+# 批量提取：逐行读取文件
+python batch_extract.py --input texts.txt                    # 打印
+python batch_extract.py --input texts.txt --output out.txt   # 写文件
 ```
 
 ## Example
